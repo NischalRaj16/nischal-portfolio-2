@@ -1,0 +1,91 @@
+/* =========================================================
+   v4 — Illustrative design + Glassmorphism layer
+   ========================================================= */
+body {
+  background:
+    radial-gradient(60vw 50vh at 0% 0%, #a7f3d0 0%, transparent 60%),
+    radial-gradient(50vw 45vh at 100% 10%, #bae6fd 0%, transparent 60%),
+    radial-gradient(55vw 50vh at 80% 70%, #99f6e4 0%, transparent 60%),
+    radial-gradient(50vw 50vh at 10% 90%, #fed7aa 0%, transparent 60%),
+    #eefaf8;
+  background-attachment: fixed;
+}
+.aurora i { opacity: .55; }
+
+/* the glass recipe */
+.glass, .tile, .card, .paper-inner, .mini, .pipeline, .contact-card, .status {
+  background: linear-gradient(135deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .28));
+  border: 1px solid rgba(255, 255, 255, .7);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset, 0 12px 36px -14px rgba(15, 76, 92, .28);
+}
+.card, .tile, .contact-card { position: relative; overflow: hidden; }
+.card::before, .contact-card::before, .paper-inner::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, 0) 40%);
+  z-index: -1;
+}
+.card, .contact-card, .paper-inner, .tile { isolation: isolate; }
+.tile { background: linear-gradient(150deg, color-mix(in srgb, var(--c) 22%, rgba(255, 255, 255, .55)), rgba(255, 255, 255, .3)); border-color: rgba(255, 255, 255, .75); }
+.tile::after { opacity: .22; filter: blur(2px); z-index: -1; }
+.mini { background: linear-gradient(150deg, color-mix(in srgb, var(--c) 14%, rgba(255, 255, 255, .6)), rgba(255, 255, 255, .3)); border-top: 3px solid var(--c); }
+.pipeline { background: rgba(255, 255, 255, .55); }
+
+/* research cards: gradient ring drawn with a mask so the inside stays see-through */
+.paper, .paper.glow { background: none; padding: 0; border-radius: 26px; animation: none; }
+.paper.glow::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 2px; pointer-events: none;
+  background: conic-gradient(from var(--ang), #0d9488, #0284c7, #f97316, #0891b2, #0d9488);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: spin 8s linear infinite;
+}
+.paper-inner { position: relative; border-radius: 26px; }
+
+/* glass marquee */
+.marquee { background: rgba(255, 255, 255, .4); color: var(--text); border-left: 0; border-right: 0; }
+.track span { color: var(--text); }
+
+/* hero illustration + floating glass badges */
+.hero-art { position: relative; max-width: 520px; justify-self: center; width: 100%; }
+.art-img { width: 100%; height: auto; filter: drop-shadow(0 30px 40px rgba(15, 76, 92, .18)); }
+.float-badge {
+  position: absolute; display: flex; align-items: center; gap: 10px; padding: 10px 14px 10px 10px;
+  border-radius: 16px; animation: bob 6s ease-in-out infinite;
+}
+.float-badge b { display: block; font: 600 .88rem var(--display); line-height: 1.2; }
+.float-badge small { display: block; font: .7rem var(--mono); color: var(--faint); }
+.fb-ico { width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center; color: #fff; font: 700 .78rem var(--display); flex-shrink: 0; }
+.i-violet { background: var(--violet); } .i-pink { background: var(--pink); } .i-cyan { background: var(--cyan); }
+.fb1 { top: 2%; right: -4%; }
+.fb2 { bottom: 12%; left: -6%; animation-delay: -2s; }
+.fb3 { bottom: -2%; right: 4%; animation-delay: -4s; }
+@keyframes bob { 50% { transform: translateY(-8px); } }
+
+/* section spot illustrations */
+.sec-head { align-items: center; flex-wrap: wrap; }
+.spot { width: 120px; height: auto; margin-left: auto; filter: drop-shadow(0 14px 20px rgba(15, 76, 92, .15)); }
+
+/* contact CTA illustration */
+.cta { padding-right: 280px; }
+.cta-art { position: absolute; right: 40px; top: 50%; width: 220px; height: auto; transform: translateY(-50%); }
+
+@media (max-width: 960px) {
+  .hero-art { max-width: 440px; }
+  .fb2 { left: 0; }
+  .fb1 { right: 0; }
+}
+@media (max-width: 760px) {
+  .spot { width: 78px; }
+  .cta { padding-right: 24px; padding-bottom: 170px; }
+  .cta-art { top: auto; bottom: 10px; right: 10px; width: 170px; transform: none; }
+  .float-badge { padding: 7px 10px 7px 7px; border-radius: 13px; }
+  .float-badge b { font-size: .78rem; }
+  .fb-ico { width: 28px; height: 28px; border-radius: 9px; font-size: .7rem; }
+  .fb2 { bottom: 16%; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .tile, .card, .paper-inner, .mini, .pipeline, .contact-card, .status { background: rgba(255, 255, 255, .92); }
+}
+html, body { overflow-x: clip; }
