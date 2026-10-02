@@ -1,6 +1,6 @@
 # Nischal Sadashivaiah — Personal Website
 
-Personal academic website of **Nischal Sadashivaiah (中文名：Raj)**, first-year Master's student in Artificial Intelligence at Chang Gung University (Student ID M1561031).
+Personal academic website of **Nischal Sadashivaiah (中文名：拉吉 · Raj)**, first-year Master's student in Artificial Intelligence at Chang Gung University (Student ID M1561031).
 
 **Live site:** https://nischal-sadashivaiah.vercel.app
 

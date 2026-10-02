@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="glass.css">
   <link rel="stylesheet" href="final.css">
@@ -79,7 +79,7 @@
 
       <div class="bento">
         <div class="tile glass t-violet reveal"><small>Name</small><b>Nischal Sadashivaiah</b></div>
-        <div class="tile glass t-pink reveal"><small lang="zh-Hant">中文名</small><b class="cn">Raj</b></div>
+        <div class="tile glass t-pink reveal"><small lang="zh-Hant">中文名 · Chinese name</small><b class="cn"><span lang="zh-Hant">拉吉</span> <span class="cn-en">Raj</span></b></div>
         <div class="tile glass t-amber reveal"><small>Student ID</small><b class="mono-b">M1561031</b></div>
         <div class="tile glass t-cyan reveal wide"><small>Program</small><b>Master's Program, Dept. of Artificial Intelligence · Chang Gung University, Taoyuan, Taiwan</b></div>
         <div class="tile glass t-green reveal"><small>Publications</small><b class="big">1</b><span>JNACS · 2026</span></div>
@@ -113,7 +113,7 @@
           <div class="card glass tilt">
             <h3>Co-author, “AI-Powered Network Intrusion Detection System”</h3>
             <p class="where"><cite>Journal of Networking and Communication Systems</cite> (JNACS), Vol. 9, No. 2</p>
-            <p>Research on applying machine learning to network security — see Research below.</p>
+            <p>Machine-learning intrusion detection for DoS, DDoS and port-scanning attacks (TensorFlow, XGBoost). See Research below.</p>
           </div>
         </li>
         <li class="reveal" style="--c: var(--amber)">
@@ -141,6 +141,9 @@
           </div>
           <h3>AI-Powered Network Intrusion Detection System</h3>
           <p class="venue"><cite>Journal of Networking and Communication Systems</cite> (JNACS), Vol. 9, No. 2</p>
+          <ul class="stack" aria-label="Tools">
+            <li>Python</li><li>TensorFlow</li><li>XGBoost</li><li>Feature engineering</li><li>Smart IoT security</li>
+          </ul>
 
           <figure class="pipeline">
             <picture>
@@ -150,19 +153,35 @@
             <figcaption>How the system works: traffic → features → ML classifier → alert.</figcaption>
           </figure>
 
+          <div class="metrics" aria-label="Key results">
+            <div class="metric m-violet"><b>~95%</b><span>detection accuracy · DoS</span></div>
+            <div class="metric m-pink"><b>~89%</b><span>detection accuracy · port scanning</span></div>
+            <div class="metric m-amber"><b>2 models</b><span>TensorFlow · XGBoost</span></div>
+          </div>
+
           <div class="paper-grid">
             <div class="mini m-violet">
               <h4>Problem</h4>
-              <p>Signature-based intrusion detection only catches attacks it has seen before. As network traffic grows and attacks change, rule lists fall behind.</p>
+              <p>Signature-based intrusion detection only catches attacks it has seen before. As traffic grows and attacks change, rule lists fall behind, which is a serious gap for connected and Smart IoT networks.</p>
             </div>
             <div class="mini m-pink">
               <h4>Approach</h4>
-              <p>We used machine learning to learn the difference between normal and malicious traffic from flow-level features, so the system can flag suspicious activity, including patterns that no fixed rule describes.</p>
+              <p>Train machine-learning classifiers on labelled network traffic to detect DoS, DDoS and port-scanning attacks, evaluated with confusion matrices, accuracy, precision, recall and F1-score.</p>
             </div>
             <div class="mini m-amber">
-              <h4>My role</h4>
-              <p>As co-author, I worked on the study and on writing the paper, which was peer-reviewed and published in JNACS.</p>
+              <h4>Impact</h4>
+              <p>Peer-reviewed and published in JNACS. It is directly relevant to Smart IoT security and is my foundation for explainable, trustworthy AI-based intrusion detection.</p>
             </div>
+          </div>
+
+          <div class="role">
+            <h4>My role</h4>
+            <ul>
+              <li>Preprocessed and labelled network traffic datasets and engineered features in Python for intrusion classification.</li>
+              <li>Trained and evaluated TensorFlow and XGBoost models to detect DoS, DDoS and port-scanning attacks using confusion matrices, accuracy, precision, recall and F1-score.</li>
+              <li>Achieved approximately 95% detection accuracy for DoS attacks and 89% for port-scanning attacks.</li>
+              <li>Co-authored the findings, published as a peer-reviewed paper in JNACS (see Education &amp; Experience).</li>
+            </ul>
           </div>
         </div>
       </article>
@@ -250,7 +269,7 @@
     <div class="foot glass">
       <div class="foot-brand">
         <span class="brand-mark" aria-hidden="true">NS</span>
-        <div><b>Nischal Sadashivaiah</b><small>Raj · M1561031 · M.S. AI, Chang Gung University</small></div>
+        <div><b>Nischal Sadashivaiah</b><small><span lang="zh-Hant">拉吉</span> (Raj) · M1561031 · M.S. AI, Chang Gung University</small></div>
       </div>
       <nav class="foot-links" aria-label="Footer">
         <a href="#about">About</a><a href="#education">Education</a><a href="#research">Research &amp; Projects</a><a href="#contact">Contact</a>
@@ -261,7 +280,7 @@
         <a href="https://github.com/NischalRaj16" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.8 5.8 3.1 5.8 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
-    <p class="foot-note">© <span id="year">2026</span> Nischal Sadashivaiah · Hosted on Vercel · Last updated <time datetime="2026-09-29">Sep 29, 2026</time></p>
+    <p class="foot-note">© <span id="year">2026</span> Nischal Sadashivaiah · Hosted on Vercel · Last updated <time datetime="2026-10-02">Oct 2, 2026</time></p>
   </footer>
 
   <script src="script.js"></script>
